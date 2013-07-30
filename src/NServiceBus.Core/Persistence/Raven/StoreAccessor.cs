@@ -32,13 +32,13 @@
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
                 store.Dispose();
             }
 
-            disposed = true;
         }
 
         ~StoreAccessor()

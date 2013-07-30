@@ -43,6 +43,7 @@ namespace NServiceBus.Unicast.Monitoring
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 if (counter != null)
@@ -50,7 +51,6 @@ namespace NServiceBus.Unicast.Monitoring
                     counter.Dispose();
                 }
             }
-            disposed = true;
         }
 
         ~CriticalTimeCalculator()

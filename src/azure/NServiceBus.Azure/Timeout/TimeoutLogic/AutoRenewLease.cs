@@ -45,6 +45,7 @@ namespace NServiceBus.Azure
         {
             if (!disposed)
             {
+                disposed = true;
                 if (disposing)
                 {
                     if (renewalThread != null)
@@ -57,7 +58,6 @@ namespace NServiceBus.Azure
                         renewalThread = null;
                     }
                 }
-                disposed = true;
             }
         }
 

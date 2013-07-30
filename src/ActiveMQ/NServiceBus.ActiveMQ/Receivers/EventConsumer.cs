@@ -64,6 +64,7 @@
                 return;
             }
 
+            this.disposed = true;
             if (disposing)
             {
                 foreach (var messageConsumer in this.topicConsumers)
@@ -72,7 +73,6 @@
                 }
             }
 
-            this.disposed = true;
         }
 
         public void TopicUnsubscribed(object sender, SubscriptionEventArgs e)

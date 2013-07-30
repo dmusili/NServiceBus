@@ -71,6 +71,7 @@
                 return;
             }
 
+            this.disposed = true;
             if (disposing)
             {
                 foreach (var connection in this.connections)
@@ -79,7 +80,6 @@
                 }
             }
 
-            this.disposed = true;
         }
     }
 }

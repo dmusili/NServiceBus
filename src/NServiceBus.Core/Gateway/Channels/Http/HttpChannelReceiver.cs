@@ -57,6 +57,7 @@ namespace NServiceBus.Gateway.Channels.Http
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 tokenSource.Cancel();
@@ -66,7 +67,6 @@ namespace NServiceBus.Gateway.Channels.Http
                 scheduler.Dispose();
             }
 
-            disposed = true;
         }
 
         ~HttpChannelReceiver()

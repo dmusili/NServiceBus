@@ -21,13 +21,13 @@ namespace NServiceBus.Transports.ActiveMQ.Receivers.TransactionsScopes
                 return;
             }
 
+            this.disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
                 
             }
 
-            this.disposed = true;
         }
 
         ~NoTransactionScope()

@@ -882,6 +882,7 @@ namespace NServiceBus.Unicast
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // free managed resources
@@ -891,7 +892,6 @@ namespace NServiceBus.Unicast
                 Configure.Instance.Builder.Dispose();
             }
 
-            disposed = true;
         }
 
         ~UnicastBus()

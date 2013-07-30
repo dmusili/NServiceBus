@@ -56,6 +56,7 @@ namespace NServiceBus.Transports.ActiveMQ.Receivers
         {
             if (this.disposed) return;
 
+            disposed = true;
             try
             {
                 if (disposing)
@@ -70,7 +71,6 @@ namespace NServiceBus.Transports.ActiveMQ.Receivers
                 Logger.Warn("Failed to dispose the receiver",ex);
             }
 
-            disposed = true;
         }
 
         static ILog Logger = LogManager.GetLogger(typeof(ActiveMqMessageReceiver));

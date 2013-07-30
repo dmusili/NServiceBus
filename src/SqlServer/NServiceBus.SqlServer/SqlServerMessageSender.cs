@@ -162,13 +162,13 @@
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
                 currentTransaction.Dispose();
             }
 
-            disposed = true;
         }
 
         ~SqlServerMessageSender()

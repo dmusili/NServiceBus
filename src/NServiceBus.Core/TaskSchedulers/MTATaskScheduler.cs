@@ -102,6 +102,7 @@ namespace System.Threading.Tasks.Schedulers
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
@@ -122,7 +123,6 @@ namespace System.Threading.Tasks.Schedulers
                 }
             }
 
-            disposed = true;
         }
 
         ~MTATaskScheduler()

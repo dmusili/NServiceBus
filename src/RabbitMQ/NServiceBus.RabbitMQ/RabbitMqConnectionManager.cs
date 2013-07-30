@@ -40,6 +40,7 @@
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
@@ -52,7 +53,6 @@
                 connection = null;
             }
 
-            disposed = true;
         }
 
         ~RabbitMqConnectionManager()

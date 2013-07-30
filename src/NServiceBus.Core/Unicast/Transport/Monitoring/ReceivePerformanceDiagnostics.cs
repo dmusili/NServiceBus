@@ -33,6 +33,7 @@ namespace NServiceBus.Unicast.Transport.Monitoring
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 if (successRateCounter != null)
@@ -48,7 +49,6 @@ namespace NServiceBus.Unicast.Transport.Monitoring
                     failureRateCounter.Dispose();
                 }
             }
-            disposed = true;
         }
 
         ~ReceivePerformanceDiagnostics()

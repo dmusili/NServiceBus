@@ -45,6 +45,7 @@ namespace NServiceBus.Transports.ActiveMQ.Receivers.TransactionsScopes
                 return;
             }
 
+            this.disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
@@ -56,7 +57,6 @@ namespace NServiceBus.Transports.ActiveMQ.Receivers.TransactionsScopes
                 this.sessionFactory.RemoveSessionForCurrentThread();
             }
 
-            this.disposed = true;
         }
 
         ~ActiveMqTransaction()

@@ -85,13 +85,13 @@
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
                 pooledSessionFactory.Dispose();
             }
 
-            disposed = true;
         }
 
         ~DTCTransactionSessionFactory()

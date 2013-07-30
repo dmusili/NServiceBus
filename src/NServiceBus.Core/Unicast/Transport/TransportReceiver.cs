@@ -458,6 +458,7 @@ namespace NServiceBus.Unicast.Transport
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 Stop();
@@ -468,7 +469,6 @@ namespace NServiceBus.Unicast.Transport
                 }
             }
 
-            disposed = true;
         }
 
         ~TransportReceiver()

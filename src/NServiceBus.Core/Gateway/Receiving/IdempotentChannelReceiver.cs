@@ -162,6 +162,7 @@ namespace NServiceBus.Gateway.Receiving
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
@@ -169,7 +170,6 @@ namespace NServiceBus.Gateway.Receiving
                 channelReceiver.Dispose();
             }
 
-            disposed = true;
         }
 
         ~IdempotentChannelReceiver()

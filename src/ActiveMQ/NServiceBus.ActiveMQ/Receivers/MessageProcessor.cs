@@ -73,12 +73,12 @@ namespace NServiceBus.Transports.ActiveMQ.Receivers
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 sessionFactory.Release(session);
             }
 
-            disposed = true;
         }
 
         public void ProcessMessage(IMessage message)

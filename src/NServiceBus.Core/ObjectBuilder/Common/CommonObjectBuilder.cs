@@ -157,13 +157,13 @@ namespace NServiceBus.ObjectBuilder.Common
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
                 Container.Dispose();
             }
 
-            disposed = true;
         }
 
         ~CommonObjectBuilder()

@@ -263,6 +263,7 @@ namespace NServiceBus.Transports.RabbitMQ
                 return;
             }
 
+            disposed = true;
             if (disposing)
             {
                 // Dispose managed resources.
@@ -288,7 +289,6 @@ namespace NServiceBus.Transports.RabbitMQ
                 connection = null;
             }
 
-            disposed = true;
         }
 
         ~PersistentConnection()
