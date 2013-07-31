@@ -168,8 +168,11 @@ namespace NServiceBus.AcceptanceTesting.Support
 
                 runTimer.Stop();
 
+                Console.Out.WriteLine("Running scenario verifications");
                 Parallel.ForEach(runners, runner => shoulds.Where(s => s.ContextType == runDescriptor.ScenarioContext.GetType()).ToList()
                                                            .ForEach(v => v.Verify(runDescriptor.ScenarioContext)));
+                Console.Out.WriteLine("Scenario verifications done");
+
             }
             catch (Exception ex)
             {
@@ -185,17 +188,21 @@ namespace NServiceBus.AcceptanceTesting.Support
         static void UnloadAppDomains(IEnumerable<ActiveRunner> runners)
         {
             Parallel.ForEach(runners, runner =>
+            {
+                string friendlyName = runner.AppDomain.FriendlyName;
+
+                try
                 {
-                    try
-                    {
-                        AppDomain.Unload(runner.AppDomain);
-                    }
-                    catch (CannotUnloadAppDomainException ex)
-                    {
-                        Console.Out.WriteLine("Failed to unload appdomain {0}, reason: {1}",runner.AppDomain.FriendlyName,ex.ToString());
-                    }
-                    
-                });
+                    Console.Out.WriteLine("Unloading {0} AppDomain", friendlyName);
+                    AppDomain.Unload(runner.AppDomain);
+                    Console.Out.WriteLine("{0} AppDomain unloaded", friendlyName);
+
+                }
+                catch (Exception ex)
+                {
+                    Console.Out.WriteLine("Failed to unload appdomain {0}, reason: {1}", friendlyName, ex.ToString());
+                }
+            });
         }
 
         static IDictionary<Type, string> CreateRoutingTable(RunDescriptor runDescriptor, IEnumerable<EndpointBehaviour> behaviorDescriptors)
